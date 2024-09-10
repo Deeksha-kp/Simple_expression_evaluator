@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setExpression, evaluateExpression } from './redux/actions';
+import './App.css'; 
 
-function App() {
+const App = () => {
+  const expression = useSelector((state) => state.expression);
+  const result = useSelector((state) => state.result);
+  const dispatch = useDispatch();
+  const [input, setInput] = useState(expression);
+
+  const handleChange = (e) => {
+    setInput(e.target.value);
+    dispatch(setExpression(e.target.value));
+  };
+
+  const handleEvaluate = () => {
+    dispatch(evaluateExpression());
+  };
+
+  const handleReset = () => {
+    setInput('');
+    dispatch(setExpression(''));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="card">
+        <h1 className="title">Simple Expression Evaluator</h1>
+        <h2 className="result">Result: {result}</h2>
+
+        <input
+          type="text"
+          value={input}
+          onChange={handleChange}
+          placeholder="Enter expression"
+          className="form-control mb-3"
+          aria-label="Expression input"
+        />
+
+        <div className="button-group">
+          <button className="btn btn-evaluate" onClick={handleEvaluate}>
+           evaluate
+          </button>
+          <button className="btn btn-reset" onClick={handleReset}>
+            Reset
+          </button>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

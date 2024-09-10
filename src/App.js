@@ -40,7 +40,7 @@ const App = () => {
 
         <div className="button-group">
           <button className="btn btn-evaluate" onClick={handleEvaluate}>
-           evaluate
+           Evaluate
           </button>
           <button className="btn btn-reset" onClick={handleReset}>
             Reset

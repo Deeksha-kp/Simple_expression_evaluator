@@ -9,13 +9,12 @@
 .card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  background-color: #242323;
+  background-color: #f9f9f9;
   border: 1px solid #ccc;
   padding: 20px;
   text-align: center;
   width: 700px; 
   max-width: 90%; 
-  color: white;
 }
 
 .title {
@@ -30,6 +29,9 @@
 .form-control {
   padding: 10px;
   text-align: center;
+  width: 80%; /* Increased width */
+  font-size: 16px; /* Increased font size */
+  margin: 0 auto; /* Centered input box */
 }
 
 .button-group {
@@ -48,7 +50,7 @@
 }
 
 .btn-evaluate {
-  background-color: #30a211;
+  background-color: #37890e;
 }
 
 .btn-reset {
@@ -60,5 +62,5 @@
 }
 
 .btn-reset:hover {
-  background-color: #c82333;
+  background-color: #4f2407;
 }
